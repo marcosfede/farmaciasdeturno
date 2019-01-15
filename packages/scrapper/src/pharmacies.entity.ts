@@ -36,7 +36,7 @@ export class Pharmacy {
   })
   latlng: Point
 
-  @ManyToOne((type) => Region, (region) => region.pharmacies)
+  @ManyToOne((type) => Region, (region) => region.pharmacies, { eager: true })
   region: Region
 }
 
@@ -51,7 +51,7 @@ export class Shift {
   @Column()
   endsAt: Date
 
-  @ManyToMany((type) => Pharmacy)
+  @ManyToMany((type) => Pharmacy, { eager: true })
   @JoinTable()
   pharmacies: Pharmacy[]
 }

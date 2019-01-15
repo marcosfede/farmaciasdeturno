@@ -8,6 +8,6 @@ module.exports = {
   password: 'test',
   database: 'test',
   synchronize: true,
-  logging: false,
+  logging: NODE_ENV !== 'production',
   entities: ['src/**/*.entity.ts'],
 }

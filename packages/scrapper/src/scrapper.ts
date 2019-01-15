@@ -104,8 +104,8 @@ async function shiftChanged(farmacias: Farmacia[]): Promise<boolean> {
   })
   if (!lastShift) return true
   const lastShiftPharmacyNames = new Set(lastShift.pharmacies.map((p) => p.name))
-  const sameShift = farmacias.every((f) => lastShiftPharmacyNames.has(f.name))
-  return !sameShift
+  const areDifferent = farmacias.some((f) => !lastShiftPharmacyNames.has(f.name))
+  return areDifferent
 }
 
 async function saveToPostgres(farmacias: Farmacia[]) {
@@ -127,8 +127,13 @@ async function saveToPostgres(farmacias: Farmacia[]) {
 export async function scrapAndSave() {
   const farmacias = await scrap()
   console.log('scrapped farmacias: ', farmacias)
-  if (!farmacias || !shiftChanged(farmacias)) {
-    console.log('sleeping 1 minute...')
+  if (!farmacias) {
+    console.log('Could not scrap, sleeping 1 minute...')
+    setTimeout(scrapAndSave, 1000 * 60 * 1)
+    return
+  }
+  if (!(await shiftChanged(farmacias))) {
+    console.log('Shift has not changed yet, sleeping 1 minute...')
     setTimeout(scrapAndSave, 1000 * 60 * 1)
     return
   }
