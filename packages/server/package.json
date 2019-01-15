@@ -4,24 +4,23 @@
   "description": "farmaciasdeturno-server",
   "author": "Federico Marcos",
   "scripts": {
-    "build": "tsc",
+    "tsc": "tsc",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "start:dev": "nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",
-    "prestart:prod": "rimraf dist && tsc",
-    "start:prod": "node dist/main.js",
+    "prestart:prod": "rimraf lib && tsc",
+    "start:prod": "node lib/main.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@fdt/models": "^1.0.0",
     "@nestjs/common": "^5.4.0",
     "@nestjs/core": "^5.4.0",
     "@nestjs/typeorm": "^5.2.2",
+    "geojson": "^0.5.0",
     "pg": "^7.8.0",
-    "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.2.2",
     "typeorm": "^0.2.11"

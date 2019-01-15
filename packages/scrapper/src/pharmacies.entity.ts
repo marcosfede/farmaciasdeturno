@@ -4,6 +4,8 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
   OneToMany,
+  ManyToMany,
+  JoinTable,
 } from 'typeorm'
 import { Point } from 'geojson'
 
@@ -42,4 +44,20 @@ export class Pharmacy {
 
   @ManyToOne((type) => Region, (region) => region.pharmacies)
   region: Region
+}
+
+@Entity()
+export class Shift {
+  @PrimaryGeneratedColumn()
+  id: number
+
+  @Column()
+  startsAt: Date
+
+  @Column()
+  endsAt: Date
+
+  @ManyToMany((type) => Pharmacy)
+  @JoinTable()
+  pharmacies: Pharmacy[]
 }

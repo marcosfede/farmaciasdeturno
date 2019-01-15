@@ -2,6 +2,8 @@ import axios from 'axios'
 import * as cheerio from 'cheerio'
 import admin, { ServiceAccount } from 'firebase-admin'
 import serviceAccount from './serviceAccountKey.json'
+import { Pharmacy, Shift, Region } from './pharmacies.entity'
+import { createConnection, getRepository } from 'typeorm'
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount as ServiceAccount),
@@ -56,8 +58,33 @@ async function scrap() {
   return farmacias
 }
 
-async function saveToDB(farmacias: Farmacia[]) {
+async function saveToFirebase(farmacias: Farmacia[]) {
   return deturnoRef.add({ timestamp: new Date(), payload: farmacias })
+}
+
+async function saveToPostgres(farmacias: Farmacia[]) {
+  try {
+    const connection = await createConnection()
+    const repository = getRepository(Pharmacy)
+    // save to db if not already there
+    for (const farmacia of farmacias) {
+      const existing = repository.findOne({ name: farmacia.name })
+      if (!existing) {
+        const ph = new Pharmacy()
+        ph.name = farmacia.name
+        ph.address = farmacia.address
+        ph.phone = farmacia.phone
+        ph.latlng = farmacia.latlng
+        ph.region = farmacia.address
+      }
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+async function saveToDB(farmacias: Farmacia[]) {
+  await Promise.all([saveToFirebase(farmacias), saveToPostgres(farmacias)])
 }
 
 export async function run() {

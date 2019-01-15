@@ -16,10 +16,11 @@
     "lib": [
       "esnext", "dom"
     ],
-    "outDir": "./dist",
+    "outDir": "./lib",
     "module": "commonjs",
     "resolveJsonModule": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "strictPropertyInitialization": false
   },
   "include": [
     "src/**/*"

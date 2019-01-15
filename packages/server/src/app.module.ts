@@ -1,16 +1,22 @@
 import { Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { PharmaciesModule } from './pharmacies/pharmacies.module'
-import * as entities from '@fdt/models'
-import ormconfig from './ormconfig'
+
+const { POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB, NODE_ENV } = process.env
 
 // TODO: read from env variables
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      ...ormconfig,
       type: 'postgres',
-      entities: Object.values(entities),
+      host: 'postgres',
+      port: 5432,
+      username: 'test',
+      password: 'test',
+      database: 'test',
+      synchronize: true,
+      logging: NODE_ENV !== 'production',
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
     }),
     PharmaciesModule,
   ],

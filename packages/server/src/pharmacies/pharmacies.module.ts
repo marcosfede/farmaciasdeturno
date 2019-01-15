@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { PharmaciesService } from './pharmacies.service'
 import { PharmaciesController } from './pharmacies.controller'
-import { Pharmacy } from '@fdt/models'
+import { Pharmacy } from './pharmacies.entity'
 
 @Module({
   imports: [TypeOrmModule.forFeature([Pharmacy])],

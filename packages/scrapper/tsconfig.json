@@ -18,7 +18,8 @@
     ],
     "outDir": "./lib",
     "module": "commonjs",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "strictPropertyInitialization": false
   },
   "include": [
     "src/**/*.ts"
