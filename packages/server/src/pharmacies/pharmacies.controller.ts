@@ -7,17 +7,17 @@ export class PharmaciesController {
   constructor(private readonly pharmaciesService: PharmaciesService) {}
 
   @Get()
-  async pharmacies(): Promise<Pharmacy[]> {
+  async pharmacies() {
     return this.pharmaciesService.findAll()
   }
 }
 
-@Controller('shifts')
+@Controller('onduty')
 export class ShiftsController {
   constructor(private readonly shiftsService: ShiftsService) {}
 
   @Get()
-  async shifts(): Promise<Shift[]> {
-    return this.shiftsService.findAll()
+  async shifts() {
+    return this.shiftsService.findOne()
   }
 }

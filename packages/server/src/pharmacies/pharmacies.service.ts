@@ -10,7 +10,7 @@ export class PharmaciesService {
     private readonly pharmacyRepository: Repository<Pharmacy>,
   ) {}
 
-  async findAll(): Promise<Pharmacy[]> {
+  async findAll() {
     return await this.pharmacyRepository.find()
   }
 }
@@ -22,7 +22,11 @@ export class ShiftsService {
     private readonly shiftRepository: Repository<Shift>,
   ) {}
 
-  async findAll(): Promise<Shift[]> {
+  async findAll() {
     return await this.shiftRepository.find()
+  }
+
+  async findOne() {
+    return await this.shiftRepository.findOne()
   }
 }
