@@ -8,17 +8,18 @@
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
+    "target": "esnext",
     "sourceMap": true,
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "lib": [
-      "es6", "dom"
+      "esnext", "dom"
     ],
-    "outDir": "./lib",
+    "outDir": "./dist",
     "module": "commonjs",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": "."
   },
   "include": [
     "src/**/*"

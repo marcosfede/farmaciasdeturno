@@ -1,9 +1,8 @@
 {
-  "name": "@farmacias/models",
+  "name": "@fdt/models",
   "version": "1.0.0",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
-  "module": "lib/index.js",
   "author": "Federico Marcos",
   "license": "GPL",
   "private": true,

@@ -4,10 +4,10 @@ RUN mkdir /app
 
 RUN apt-get update && apt-get -y install cron
 
-COPY package.json yarn.lock /app/
+COPY package.json package-lock.json /app/
 
 WORKDIR /app
 
-RUN yarn
+RUN npm install
 
 COPY . /app

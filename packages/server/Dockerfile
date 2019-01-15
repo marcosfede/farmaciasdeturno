@@ -2,10 +2,10 @@ FROM node
 
 RUN mkdir /app
 
-COPY package.json yarn.lock /app/
+COPY package.json package-lock.json /app/
 
 WORKDIR /app
 
-RUN yarn
+RUN npm install
 
 COPY . /app

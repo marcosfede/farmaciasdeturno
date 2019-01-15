@@ -1,5 +1,5 @@
 {
-  "name": "@farmacias/server",
+  "name": "@fdt/server",
   "version": "0.0.1",
   "description": "farmaciasdeturno-server",
   "author": "Federico Marcos",
@@ -16,7 +16,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@farmacias/models": "^1.0.0",
+    "@fdt/models": "^1.0.0",
     "@nestjs/common": "^5.4.0",
     "@nestjs/core": "^5.4.0",
     "@nestjs/typeorm": "^5.2.2",
