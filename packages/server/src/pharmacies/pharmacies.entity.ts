@@ -1,15 +1,8 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  ManyToOne,
-  OneToMany,
-  ManyToMany,
-  JoinTable,
-} from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, ManyToMany, JoinTable, Unique } from 'typeorm'
 import { Point } from 'geojson'
 
 @Entity()
+@Unique(['name'])
 export class Region {
   @PrimaryGeneratedColumn()
   id: number
@@ -22,6 +15,7 @@ export class Region {
 }
 
 @Entity()
+@Unique(['name'])
 export class Pharmacy {
   @PrimaryGeneratedColumn()
   id: number
