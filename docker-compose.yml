@@ -24,16 +24,15 @@ services:
   #     - /app/node_modules
   #   command: 'yarn start'
 
-  back:
-    depends_on:
-      - postgres
-    build: './packages/server'
-    ports:
-      - '4000:3000'
-    command: 'yarn start:dev'
-    volumes:
-      - ./packages/server:/app:delegated
-      - /app/node_modules
+  # back:
+  #   depends_on:
+  #     - postgres
+  #   build: './packages/server'
+  #   ports:
+  #     - '4000:3000'
+  #   command: 'yarn start:dev'
+  #   volumes:
+  #     - ./packages/server:/app:delegated
 
   # scrapper:
   #   build: './packages/scrapper'
