@@ -34,9 +34,9 @@ services:
     volumes:
       - ./packages/server:/app:delegated
 
-  # scrapper:
-  #   build: './packages/scrapper'
-  #   command: 'npm run run:dev'
+  scrapper:
+    build: './packages/scrapper'
+    command: 'npm run run:dev'
 
 volumes:
   db_dev:
