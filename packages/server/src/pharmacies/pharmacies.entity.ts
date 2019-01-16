@@ -23,7 +23,7 @@ export class Pharmacy {
   @Column({ length: 500, nullable: true })
   name: string
 
-  @Column({ length: 10, nullable: true })
+  @Column({ length: 100, nullable: true })
   phone: string
 
   @Column({ length: 100 })
