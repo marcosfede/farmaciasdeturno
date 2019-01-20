@@ -31,5 +31,11 @@ module.exports = {
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
     'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+      options: {
+        production: true,
+      },
+    },
   ],
 }
