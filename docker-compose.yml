@@ -11,18 +11,16 @@ services:
       POSTGRES_PASSWORD: 'test'
       POSTGRES_DB: 'test'
 
-  # client:
-  #   build:
-  #     context: './packages/client'
-  #     dockerfile: 'Dockerfile'
-  #     args:
-  #       - REACT_APP_API_URL=http://localhost:4000
-  #   ports:
-  #     - '3000:3000'
-  #   volumes:
-  #     - ./client:/app:delegated
-  #     - /app/node_modules
-  #   command: 'yarn start'
+  client:
+    build:
+      context: './packages/client'
+      dockerfile: 'Dockerfile'
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./packages/client:/app:delegated
+      - /app/node_modules
+    command: 'npm run develop -- --host 0.0.0.0'
 
   back:
     depends_on:
