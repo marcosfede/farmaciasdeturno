@@ -8,6 +8,12 @@ function trim(s) {
   return (s || '').replace(/^\s+|\s+$/g, '')
 }
 
+function sleep(duration) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, duration)
+  })
+}
+
 interface Farmacia {
   name: string
   address: string
@@ -125,22 +131,27 @@ async function saveToPostgres(farmacias: Farmacia[]) {
 }
 
 export async function scrapAndSave() {
-  const farmacias = await scrap()
+  let farmacias
+  while (true) {
+    farmacias = await scrap()
+    if (!farmacias) {
+      console.log('Could not scrap, sleeping 1 minute...')
+      await sleep(1000 * 60 * 1)
+      continue
+    }
+    if (!(await shiftChanged(farmacias))) {
+      console.log('Shift has not changed yet, sleeping 1 minute...')
+      await sleep(1000 * 60 * 1)
+      continue
+    }
+    break
+  }
   console.log('scrapped farmacias: ', farmacias)
-  if (!farmacias) {
-    console.log('Could not scrap, sleeping 1 minute...')
-    setTimeout(scrapAndSave, 1000 * 60 * 1)
-    return
-  }
-  if (!(await shiftChanged(farmacias))) {
-    console.log('Shift has not changed yet, sleeping 1 minute...')
-    setTimeout(scrapAndSave, 1000 * 60 * 1)
-    return
-  }
   await saveToPostgres(farmacias)
 }
 
 export async function run() {
-  await createConnection()
+  const connection = await createConnection()
   await scrapAndSave()
+  await connection.close()
 }
