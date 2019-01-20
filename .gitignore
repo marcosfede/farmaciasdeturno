@@ -31,3 +31,7 @@ serviceAccountKey.json
 
 # built packages
 packages/*/lib
+
+# gatsby
+.cache
+packages/client/public

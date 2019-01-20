@@ -20,7 +20,6 @@
             true,
             "single",
             "avoid-escape",
-            "avoid-template",
             "jsx-double"
         ],
         "indent": true,
