@@ -34,8 +34,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
-        production: true,
+        analyzerMode: 'static',
+        reportFilename: 'report.html',
       },
     },
+    'gatsby-plugin-antd-mobile',
   ],
 }

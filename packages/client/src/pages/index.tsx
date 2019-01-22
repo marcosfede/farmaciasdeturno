@@ -1,10 +1,12 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React, { Suspense } from 'react'
 
-import Layout from '../components/layout'
-import Image from '../components/image'
-import SEO from '../components/seo'
-import Map from '../components/map'
+import { Link } from 'gatsby'
+import { Button } from 'antd-mobile'
+
+import Layout from '../components/Layout'
+import Image from '../components/Image'
+import SEO from '../components/Seo'
+import Map from '../components/Map'
 
 const IndexPage = () => (
   <Layout>
@@ -15,7 +17,8 @@ const IndexPage = () => (
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <Map />
+    <Button type="primary">Primary</Button>
+    {typeof window !== 'undefined' && Map && <Map />}
   </Layout>
 )
 
