@@ -3,7 +3,8 @@
     "extends": [
         "tslint:recommended",
         "tslint-plugin-prettier",
-        "tslint-config-prettier"
+        "tslint-config-prettier",
+        "tslint-react"
     ],
     "jsRules": {
         "no-unused-expression": true,
@@ -52,6 +53,8 @@
             false
         ],
         "max-classes-per-file": false,
-        "no-console": false
+        "no-console": false,
+        "jsx-no-multiline-js": false,
+        "jsx-boolean-value": false
     }
 }

@@ -1,25 +1,18 @@
-import React, { Suspense } from 'react'
-
-import { Link } from 'gatsby'
-import { Button } from 'antd-mobile'
+import React from 'react'
 
 import Layout from '../components/Layout'
-import Image from '../components/Image'
 import SEO from '../components/Seo'
-import Map from '../components/Map'
+import Map from '../components/SimpleMap'
+import './index.css'
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Button type="primary">Primary</Button>
-    {typeof window !== 'undefined' && Map && <Map />}
-  </Layout>
-)
+class IndexPage extends React.PureComponent {
+  render() {
+    return (
+      <Layout>
+        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      </Layout>
+    )
+  }
+}
 
 export default IndexPage

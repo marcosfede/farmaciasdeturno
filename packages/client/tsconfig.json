@@ -17,7 +17,7 @@
         "resolveJsonModule": true,
         "noEmit": true,
         "target": "esnext",
-        "lib": ["dom", "esnext"],
+        "lib": ["dom", "esnext"]
     },
     "include": ["src"]
 }

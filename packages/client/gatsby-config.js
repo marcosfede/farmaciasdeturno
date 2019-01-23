@@ -36,8 +36,8 @@ module.exports = {
       options: {
         analyzerMode: 'static',
         reportFilename: 'report.html',
+        openAnalyzer: true,
       },
     },
-    'gatsby-plugin-antd-mobile',
   ],
 }

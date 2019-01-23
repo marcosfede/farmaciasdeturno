@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
+import noSSR from '../utils/noSSR'
+import 'leaflet_css'
 
-export default class SimpleExample extends React.Component {
+class SimpleMap extends React.Component {
   state = {
     lat: 51.505,
     lng: -0.09,
@@ -23,3 +24,5 @@ export default class SimpleExample extends React.Component {
     )
   }
 }
+
+export default noSSR(SimpleMap)
