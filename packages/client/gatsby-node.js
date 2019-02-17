@@ -12,6 +12,8 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       alias: {
         leaflet: path.resolve(__dirname, 'node_modules/leaflet/dist/leaflet-src.esm.js'),
         leaflet_css: path.resolve(__dirname, 'node_modules/leaflet/dist/leaflet.css'),
+        marker_icon: path.resolve(__dirname, 'node_modules/leaflet/dist/images/marker-icon.png'),
+        marker_shadow: path.resolve(__dirname, 'node_modules/leaflet/dist/images/marker-shadow.png'),
       },
     },
   })

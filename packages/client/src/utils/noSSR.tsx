@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { SFC } from 'react'
 
 function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName || WrappedComponent.name || 'Component'
 }
 
-export default function noSSR(Component: typeof React.Component) {
+// TODO: find typescript type for generic react component
+export default function noSSR(Component: any): any {
   const wrapped: React.ComponentClass = class NoSSRWrapper extends React.Component {
     state = {
       server: true,

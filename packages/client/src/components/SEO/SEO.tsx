@@ -11,6 +11,7 @@ interface IProps {
   title: string
 }
 
+/* tslint:disable:jsx-no-lambda */
 function SEO({ description, lang, meta, keywords, title }: IProps) {
   return (
     <StaticQuery

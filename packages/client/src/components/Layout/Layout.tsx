@@ -2,6 +2,7 @@ import React from 'react'
 import * as PropTypes from 'prop-types'
 
 import './Layout.css'
+import 'normalize.css'
 
 interface IProps {
   children: React.ReactNode

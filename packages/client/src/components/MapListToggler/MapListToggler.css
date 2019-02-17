@@ -1,0 +1,10 @@
+.toggler {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.toggler .toggle-button {
+    padding: 10px;
+}

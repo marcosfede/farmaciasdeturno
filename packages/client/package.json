@@ -5,8 +5,10 @@
   "version": "0.1.0",
   "author": "Federico Marcos",
   "dependencies": {
+    "antd": "^3.13.2",
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
+    "gatsby-plugin-antd": "^2.0.2",
     "gatsby-plugin-manifest": "^2.0.9",
     "gatsby-plugin-offline": "^2.0.16",
     "gatsby-plugin-react-helmet": "^3.0.2",
@@ -15,6 +17,7 @@
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-sharp": "^2.1.8",
     "leaflet": "^1.4.0",
+    "normalize.css": "^8.0.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
