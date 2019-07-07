@@ -5,10 +5,12 @@
   "version": "0.1.0",
   "author": "Federico Marcos",
   "dependencies": {
-    "antd": "^3.13.2",
+    "@ionic/react": "^0.0.6",
+    "@types/jest": "^24.0.15",
+    "@types/react-router": "^5.0.3",
+    "@types/react-router-dom": "^4.3.4",
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
-    "gatsby-plugin-antd": "^2.0.2",
     "gatsby-plugin-manifest": "^2.0.9",
     "gatsby-plugin-offline": "^2.0.16",
     "gatsby-plugin-react-helmet": "^3.0.2",
@@ -39,7 +41,7 @@
   "devDependencies": {
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.20",
-    "@types/react-dom": "^16.0.11",
+    "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
     "babel-plugin-import": "^1.11.0",
     "prettier": "^1.15.2",

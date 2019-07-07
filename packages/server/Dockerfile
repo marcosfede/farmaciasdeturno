@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:12-alpine
 
 RUN mkdir /app
 
@@ -6,6 +6,6 @@ COPY package.json package-lock.json /app/
 
 WORKDIR /app
 
-RUN npm install
+RUN npm ci
 
 COPY . /app
