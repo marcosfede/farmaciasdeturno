@@ -6,7 +6,20 @@
     height: 100%;
 }
 
-.map,
+.main .header::after{
+    display: none;
+}
+
+.map{
+    position: fixed;
+    height: '100vh';
+    width: '100vw';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
 .pharmacy-list {
     height: 100%;
     grid-area: middle;

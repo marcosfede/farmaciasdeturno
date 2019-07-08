@@ -1,51 +1,54 @@
 import React from 'react'
-
-import { Layout, SEO, Map, Header, MapListToggler, GeolocateButton, PharmacyList } from '../components'
-import { geolocationObservable } from '../utils/geolocationObservable'
-import dynamicClassName from '../utils/dynamicClassName'
-import mock from '../mock'
+import { IonPage, IonList, IonItem, IonLabel, IonContent } from '@ionic/react'
+import { Layout, SEO, Map, Header, GeolocateButton, PharmacyList } from '../components'
 
 import './index.css'
+import PharmacyItem from '../components/PharmacyItem/PharmacyItem'
+import styled from 'styled-components'
 
 interface IState {
   showMap: boolean
 }
+// const geolocate() {
+//   geolocationObservable
+//     .takeFirst()
+//     .catch((e) => {
+//       console.log('No se pudo acceder a la geolocalizacion')
+//       return Promise.reject(e)
+//     })
+//     .then((geolocation) => console.log(geolocation))
+// }
 
-class IndexPage extends React.PureComponent<{}, IState> {
-  state = {
-    showMap: true,
-  }
+const List = styled.div`
+  margin-top: 50vh;
+  display: block;
+  width: 100vw;
+  position: relative;
+  background: #f5f5f5;
+`
 
-  toggleMap = () => {
-    this.setState((state) => ({ showMap: !state.showMap }))
-  }
-
-  geolocate() {
-    geolocationObservable
-      .takeFirst()
-      .catch((e) => {
-        console.log('No se pudo acceder a la geolocalizacion')
-        return Promise.reject(e)
-      })
-      .then((geolocation) => console.log(geolocation))
-  }
-  render() {
-    return (
-      <Layout>
-        <div className="main">
-          <SEO title="Home" keywords={[`pharmacies`, `application`, `react`]} />
-          <Header />
-          <Map className={dynamicClassName({ hidden: !this.state.showMap })} />
-          <PharmacyList
-            className={dynamicClassName({ hidden: this.state.showMap, 'pharmacy-list': true })}
-            pharmacies={mock.pharmacies as Pharmacy[]}
-          />
-          <GeolocateButton onClick={this.geolocate} />
-          <MapListToggler onClick={this.toggleMap} />
-        </div>
-      </Layout>
-    )
-  }
+const IndexPage = () => {
+  return (
+    <Layout>
+      <IonPage id="main">
+        <SEO title="Home" keywords={[`pharmacies`, `application`, `react`]} />
+        <Header />
+        <IonContent>
+          <Map className="map" />
+          {/* <PharmacyList
+          className={dynamicClassName({ 'pharmacy-list': true })}
+          pharmacies={mock.pharmacies as Pharmacy[]}
+        /> */}
+          <GeolocateButton />
+          <List>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
+              <PharmacyItem />
+            ))}
+          </List>
+        </IonContent>
+      </IonPage>
+    </Layout>
+  )
 }
 
 export default IndexPage
