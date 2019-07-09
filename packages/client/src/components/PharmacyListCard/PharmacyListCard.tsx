@@ -47,7 +47,11 @@ const Phone = styled.div`
   color: #8c8c8c;
 `
 
-export default () => {
+interface IProps {
+  pharmacy: Pharmacy
+}
+
+export default ({ pharmacy }: IProps) => {
   return (
     <Item>
       <Body>

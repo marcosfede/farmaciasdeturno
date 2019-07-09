@@ -1,4 +1,11 @@
-export default {
+interface Response {
+  id: number
+  startsAt: string
+  endsAt: string
+  pharmacies: Pharmacy[]
+}
+
+const mockData: Response = {
   id: 1,
   startsAt: '2019-01-15T08:30:00.000Z',
   endsAt: '2019-01-16T08:30:00.000Z',
@@ -133,3 +140,5 @@ export default {
     },
   ],
 }
+
+export default mockData

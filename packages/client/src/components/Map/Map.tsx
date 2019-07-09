@@ -1,7 +1,7 @@
-import React, { ReactNode, useState, SFC } from 'react'
-import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'
+import React from 'react'
+import { Map as LeafletMap, TileLayer, Marker } from 'react-leaflet'
 import { markerIcon } from './icons'
-import NoSSR from '../../utils/noSSR'
+import NoSSR from '~/utils/noSSR'
 import 'leaflet_css'
 
 import './Map.css'
