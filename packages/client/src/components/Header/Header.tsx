@@ -1,12 +1,14 @@
 import React from 'react'
-import { Button } from 'antd'
-import './Header.css'
+import { IonHeader, IonToolbar, IonSearchbar } from '@ionic/react'
 
-export default () => {
+const Header = () => {
   return (
-    <div className="header">
-      <Button shape="circle" icon="menu" className="menu" size="small" />
-      <div className="title">Farmacias de Turno</div>
-    </div>
+    <IonHeader>
+      <IonToolbar>
+        <IonSearchbar />
+      </IonToolbar>
+    </IonHeader>
   )
 }
+
+export default Header

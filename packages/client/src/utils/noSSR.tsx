@@ -1,29 +1,35 @@
-import React, { SFC } from 'react'
+import React, { ReactNode } from 'react'
 
-function getDisplayName(WrappedComponent) {
-  return WrappedComponent.displayName || WrappedComponent.name || 'Component'
+interface IState {
+  render: boolean
 }
 
-// TODO: find typescript type for generic react component
-export default function noSSR(Component: any): any {
-  const wrapped: React.ComponentClass = class NoSSRWrapper extends React.Component {
-    state = {
-      server: true,
-    }
+interface IProps {
+  fallback?: ReactNode
+}
 
-    componentDidMount() {
-      if (typeof window !== undefined) {
-        this.setState({ server: false })
-      }
-    }
+export default class NoSSR extends React.Component<IProps, IState> {
+  static defaultProps = {
+    fallback: null,
+  }
 
-    render() {
-      if (this.state.server) {
-        return null
-      }
-      return <Component {...this.props} />
+  constructor(props) {
+    super(props)
+    this.state = {
+      render: false,
     }
   }
-  wrapped.displayName = `NoSSR${getDisplayName(Component)}`
-  return wrapped
+
+  componentDidMount() {
+    if (typeof window !== undefined) {
+      this.setState({ render: true })
+    }
+  }
+
+  render() {
+    if (!this.state.render) {
+      return this.props.fallback
+    }
+    return this.props.children
+  }
 }

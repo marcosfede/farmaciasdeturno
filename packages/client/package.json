@@ -7,24 +7,26 @@
   "dependencies": {
     "@ionic/react": "^0.0.6",
     "@types/jest": "^24.0.15",
-    "@types/react-router": "^5.0.3",
-    "@types/react-router-dom": "^4.3.4",
+    "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
     "gatsby-plugin-manifest": "^2.0.9",
     "gatsby-plugin-offline": "^2.0.16",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sharp": "^2.0.14",
+    "gatsby-plugin-styled-components": "^3.1.0",
     "gatsby-plugin-typescript": "^2.0.3",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-sharp": "^2.1.8",
+    "ionicons": "^4.6.1",
     "leaflet": "^1.4.0",
-    "normalize.css": "^8.0.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
-    "react-leaflet": "^2.2.0"
+    "react-leaflet": "^2.2.0",
+    "react-router-dom": "^5.0.1",
+    "styled-components": "^4.3.2"
   },
   "keywords": [
     "gatsby"
@@ -38,11 +40,22 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "tsc": "tsc"
   },
+  "browserslist": [
+    ">1%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
+    "babel-preset-gatsby": "^0.1.9",
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.20",
     "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
+    "@types/styled-components": "^4.1.16",
     "babel-plugin-import": "^1.11.0",
     "prettier": "^1.15.2",
     "typescript": "^3.2.4",

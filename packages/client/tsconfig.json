@@ -1,23 +1,31 @@
 {
-    "compilerOptions": {
-        "jsx": "react",
-        "declaration": true,
-        "noImplicitAny": false,
-        "removeComments": true,
-        "noLib": false,
-        "allowSyntheticDefaultImports": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "sourceMap": true,
-        "strict": true,
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "outDir": "./lib",
-        "module": "commonjs",
-        "resolveJsonModule": true,
-        "noEmit": true,
-        "target": "esnext",
-        "lib": ["dom", "esnext"]
-    },
-    "include": ["src"]
+  "compilerOptions": {
+    "jsx": "react",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "outDir": "./lib",
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": false,
+    "noUnusedLocals": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

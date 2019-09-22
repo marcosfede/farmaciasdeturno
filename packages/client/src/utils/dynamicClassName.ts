@@ -1,5 +1,8 @@
-export default function dynamicClassName(object) {
-  return Object.entries(object)
-    .reduce((acc, [key, value]) => (!!value ? acc.concat(key) : acc), [] as string[])
+export function dynamicClassName(dynamicClasses: { [x: string]: boolean }, staticClasses = ''): string {
+  const extra =
+    staticClasses.split(' ').length > 0 ? staticClasses.split(' ').map((cls): [string, boolean] => [cls, true]) : []
+  return Object.entries(dynamicClasses)
+    .concat(extra)
+    .reduce((acc, [key, value]) => (value ? acc.concat(key) : acc), [] as string[])
     .join(' ')
 }
