@@ -1,0 +1,50 @@
+{
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+    "env": {
+      "browser": true,
+      "jest": true,
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "prettier/prettier": ["error", { "singleQuote": true }],
+      "react-hooks/rules-of-hooks": "error",
+      "@typescript-eslint/camelcase": 0,
+      "@typescript-eslint/interface-name-prefix": 0,
+      "@typescript-eslint/no-unused-vars": 0,
+      "react/prop-types": 0,
+      "no-empty": "off",
+      "@typescript-eslint/explicit-function-return-type": 0,
+      "@typescript-eslint/no-empty-function": 0,
+      "@typescript-eslint/no-object-literal-type-assertion": 0,
+      "no-console": "warn"
+    },
+    "overrides": [
+      {
+        "files": ["*.js", "*.jsx"],
+        "rules": {
+          "@typescript-eslint/no-var-requires": 0,
+          "@typescript-eslint/explicit-function-return-type": 0,
+          "@typescript-eslint/no-unused-vars": 0,
+          "react/display-name": "warn",
+          "react/no-unescaped-entities": "warn",
+          "@typescript-eslint/no-use-before-define": 1
+        }
+      }
+    ],
+    "settings": {
+      "react": {
+        "pragma": "React",
+        "version": "detect"
+      }
+    },
+    "parser": "@typescript-eslint/parser"
+  }
+  
