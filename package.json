@@ -6,11 +6,14 @@
     "lint:fix": "yarn run lint --fix"
   },
   "devDependencies": {
-    "husky": "^1.3.1",
-    "lerna": "^3.10.5",
-    "lint-staged": "^8.2.1",
-    "prettier": "^1.15.2",
-    "typescript": "^3.6.3"
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1"
   },
   "name": "farmacias",
   "engines": {
@@ -28,13 +31,10 @@
     ]
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.3.0",
-    "@typescript-eslint/parser": "^2.3.0",
-    "eslint": "^6.4.0",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-config-react": "^1.1.7",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^2.0.1"
+    "husky": "^1.3.1",
+    "lerna": "^3.10.5",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.15.2",
+    "typescript": "^3.6.3"
   }
 }
