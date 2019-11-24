@@ -11,16 +11,16 @@ services:
       POSTGRES_PASSWORD: 'test'
       POSTGRES_DB: 'test'
 
-  client:
-    build:
-      context: './packages/client'
-      dockerfile: 'Dockerfile'
-    ports:
-      - '8000:8000'
-    volumes:
-      - ./packages/client:/app:delegated
-      - /app/node_modules
-    command: 'npm run develop -- --host 0.0.0.0'
+  # client:
+  #   build:
+  #     context: './packages/client'
+  #     dockerfile: 'Dockerfile'
+  #   ports:
+  #     - '8000:8000'
+  #   volumes:
+  #     - ./packages/client:/app:delegated
+  #     - /app/node_modules
+  #   command: 'npm run develop -- --host 0.0.0.0'
 
   back:
     depends_on:
