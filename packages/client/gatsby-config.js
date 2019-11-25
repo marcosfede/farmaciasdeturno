@@ -1,12 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Farmacias de Turno`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    "gatsby-plugin-tailwindcss",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -16,7 +15,15 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    "gatsby-plugin-typescript",
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-typescript`,
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        tailwind: true,
+        purgeOnly: [`src/css/style.css`],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

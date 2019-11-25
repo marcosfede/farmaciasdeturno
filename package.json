@@ -6,10 +6,6 @@
     "lint:fix": "yarn run lint --fix"
   },
   "devDependencies": {
-    "@types/node": "^12.12.12",
-    "@types/react": "^16.9.13",
-    "@types/react-dom": "^16.9.4",
-    "@types/react-helmet": "^5.0.14",
     "@typescript-eslint/eslint-plugin": "^2.3.0",
     "@typescript-eslint/parser": "^2.3.0",
     "eslint": "^6.4.0",
@@ -17,8 +13,7 @@
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^2.0.1",
-    "typescript": "^3.7.2"
+    "eslint-plugin-react-hooks": "^2.0.1"
   },
   "name": "farmacias",
   "engines": {
