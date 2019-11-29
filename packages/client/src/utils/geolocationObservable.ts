@@ -1,19 +1,15 @@
 type OnPermissionChangedCallback = (status: string) => void
 
-export function checkGeolocationPermission(
-  onPermissionChanged: OnPermissionChangedCallback
-) {
+export function checkGeolocationPermission(onPermissionChanged: OnPermissionChangedCallback) {
   // Check for Geolocation API permissions
-  if ("permissions" in navigator) {
+  if ('permissions' in navigator) {
     // tslint:disable-next-line
-    ;(navigator as any).permissions
-      .query({ name: "geolocation" })
-      .then(function(permissionStatus: any) {
-        onPermissionChanged(permissionStatus.state)
-        permissionStatus.onchange = function() {
-          onPermissionChanged(this.state)
-        }
-      })
+    ;(navigator as any).permissions.query({ name: 'geolocation' }).then(function(permissionStatus: any) {
+      onPermissionChanged(permissionStatus.state)
+      permissionStatus.onchange = function() {
+        onPermissionChanged(this.state)
+      }
+    })
   }
 }
 
@@ -28,9 +24,9 @@ class GeolocationObservable {
   }
   private static instance: GeolocationObservable
 
-  private started: boolean = false
-  private watchId: number = 0
-  private listenerId: number = 0
+  private started = false
+  private watchId = 0
+  private listenerId = 0
   private lastCoordinate: Coordinates | null
   // array of observers of every update
   private takeManyObservers: { [id: number]: Observer }
@@ -49,12 +45,12 @@ class GeolocationObservable {
     if (!this.started) {
       this.started = true
       this.watchId = navigator.geolocation.watchPosition(
-        position => this.update(position.coords),
-        err => {
+        (position) => this.update(position.coords),
+        (err) => {
           this.started = false
           this.reject(err)
         },
-        { enableHighAccuracy: true, maximumAge: 2000 }
+        { enableHighAccuracy: true, maximumAge: 2000 },
       )
     }
   }
@@ -83,6 +79,7 @@ class GeolocationObservable {
     return id
   }
   public removeListener(id: number) {
+    // eslint-disable-next-line no-prototype-builtins
     if (this.takeManyObservers.hasOwnProperty(id)) {
       delete this.takeManyObservers[id]
     }
@@ -97,7 +94,7 @@ class GeolocationObservable {
 
     // resolve from cache if available
     if (cache && lastCoordinate !== null) {
-      return new Promise(resolve => resolve(lastCoordinate))
+      return new Promise((resolve) => resolve(lastCoordinate))
     }
     // return a promise that will resolve on next update
     return new Promise((resolve, reject) => {

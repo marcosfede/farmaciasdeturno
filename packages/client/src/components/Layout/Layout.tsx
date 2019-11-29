@@ -1,6 +1,6 @@
-import React from "react"
-import * as PropTypes from "prop-types"
-import "../../css/style.css"
+import React from 'react'
+import * as PropTypes from 'prop-types'
+import '../../css/styles.css'
 
 interface IProps {
   children: React.ReactNode

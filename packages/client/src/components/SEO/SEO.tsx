@@ -1,24 +1,35 @@
-import React from "react"
-import * as PropTypes from "prop-types"
-import Helmet, { HelmetProps } from "react-helmet"
-import { StaticQuery, graphql } from "gatsby"
+import React from 'react'
+import * as PropTypes from 'prop-types'
+import Helmet, { HelmetProps } from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 
 interface IProps {
   description?: string
   lang: string
-  meta: HelmetProps["meta"]
+  meta: HelmetProps['meta']
   keywords: string[]
   title: string
 }
+
+const detailsQuery = graphql`
+  query DefaultSEOQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+      }
+    }
+  }
+`
 
 /* tslint:disable:jsx-no-lambda */
 function SEO({ description, lang, meta, keywords, title }: IProps) {
   return (
     <StaticQuery
       query={detailsQuery}
-      render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description
+      render={(data) => {
+        const metaDescription = description || data.site.siteMetadata.description
         return (
           <Helmet
             htmlAttributes={{
@@ -66,7 +77,7 @@ function SEO({ description, lang, meta, keywords, title }: IProps) {
                       name: `keywords`,
                       content: keywords.join(`, `),
                     }
-                  : []
+                  : [],
               )
               .concat(meta as any)}
           />
@@ -91,15 +102,3 @@ SEO.propTypes = {
 }
 
 export default SEO
-
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        author
-      }
-    }
-  }
-`
