@@ -1,31 +1,23 @@
 {
   "compilerOptions": {
-    "jsx": "react",
-    "declaration": true,
-    "noImplicitAny": false,
-    "removeComments": true,
-    "noLib": false,
-    "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "sourceMap": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "moduleResolution": "node",
+    "allowJs": true,
+    "alwaysStrict": true,
     "esModuleInterop": true,
-    "outDir": "./lib",
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "lib": ["dom", "es2017"],
     "module": "esnext",
-    "resolveJsonModule": true,
+    "moduleResolution": "node",
     "noEmit": true,
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "skipLibCheck": false,
+    "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["src/*"]
-    }
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext"
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.tsx"]
 }

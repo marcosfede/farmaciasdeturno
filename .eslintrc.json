@@ -24,19 +24,13 @@
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/no-object-literal-type-assertion": 0,
-    "no-console": "warn"
+    "no-console": "warn",
+    "react/react-in-jsx-scope": 0
   },
   "overrides": [
     {
       "files": ["*.js", "*.jsx"],
-      "rules": {
-        "@typescript-eslint/no-var-requires": 0,
-        "@typescript-eslint/explicit-function-return-type": 0,
-        "@typescript-eslint/no-unused-vars": 0,
-        "react/display-name": "warn",
-        "react/no-unescaped-entities": "warn",
-        "@typescript-eslint/no-use-before-define": 1
-      }
+      "rules": {}
     }
   ],
   "settings": {
