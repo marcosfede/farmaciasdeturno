@@ -12,26 +12,26 @@
   ],
   "scripts": {
     "tsc": "tsc",
-    "run:dev": "ts-node src/index.ts",
+    "schedule": "ts-node src/index.ts",
     "run-once": "ts-node src/run-once.ts",
     "start": "node lib/index.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "cheerio": "^1.0.0-rc.2",
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
     "date-fns": "^1.30.1",
     "firebase-admin": "^6.4.0",
     "geojson": "^0.5.0",
-    "node-schedule": "^1.3.1",
-    "pg": "^7.8.0",
-    "typeorm": "^0.2.11"
+    "node-schedule": "^1.3.2",
+    "pg": "^8.0.3",
+    "typeorm": "^0.2.24"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "@types/cheerio": "^0.22.10",
-    "@types/geojson": "^7946.0.4",
-    "@types/node-schedule": "^1.2.2",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.2.2"
+    "@types/cheerio": "^0.22.18",
+    "@types/geojson": "^7946.0.7",
+    "@types/node-schedule": "^1.3.0",
+    "ts-node": "^8.9.1",
+    "typescript": "^3.8.3"
   }
 }

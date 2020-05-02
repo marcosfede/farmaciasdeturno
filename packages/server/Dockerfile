@@ -1,11 +1,18 @@
-FROM node:12-alpine
-
-RUN mkdir /app
-
-COPY package.json package-lock.json /app/
-
+FROM node:12-alpine as base
+RUN mkdir /app && chown node:node /app
+USER node
 WORKDIR /app
+ENV NODE_PATH=src
+COPY --chown=node:node package*.json /app/
 
-RUN npm ci
+FROM base as development
+RUN npm install --no-optional --no-audit && npm cache clean --force
+COPY --chown=node:node . /app
+CMD npm run start:dev
 
-COPY . /app
+FROM base as prod
+RUN npm install --no-optional --no-audit && npm cache clean --force
+COPY --chown=node:node . /app
+ENV NODE_ENV=production
+RUN npm run build
+CMD npm start:prod

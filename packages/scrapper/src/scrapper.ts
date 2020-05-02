@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios from 'axios'
 import * as cheerio from 'cheerio'
 import { Pharmacy, Shift, Region } from './pharmacies.entity'
@@ -42,7 +43,7 @@ async function scrap() {
     const phone = trim($(children[4]).text()).replace('Teléfono ', '')
     const latlng = $(children[5])
       .find('a')
-      .attr('href')
+      .attr('href')!
       .replace('https://www.google.com/maps/dir/?api=1&destination=', '')
     farmacias.push({
       name,
@@ -132,6 +133,7 @@ async function saveToPostgres(farmacias: Farmacia[]) {
 
 export async function scrapAndSave() {
   let farmacias
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     farmacias = await scrap()
     if (!farmacias) {
