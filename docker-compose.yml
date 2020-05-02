@@ -43,7 +43,6 @@ services:
       target: development
     depends_on:
       - postgres
-    command: 'npm run schedule'
     volumes:
       - ./packages/scrapper:/app:delegated
       - nm_scrapper:/app/node_modules

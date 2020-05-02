@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+  postgres:
+    image: marcosfede/farmaciasdeturno-postgres:prod
+    build: './packages/postgres'
+    volumes:
+      - db_prod:/var/lib/postgresql/data
+    env_file: .env.prod
+
+  front:
+    image: marcosfede/farmaciasdeturno-client:prod
+    build:
+      context: './packages/client'
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - '3000:3000'
+    env_file: .env.prod
+
+  back:
+    image: marcosfede/farmaciasdeturno-back:prod
+    depends_on:
+      - postgres
+    build:
+      context: './packages/server'
+      target: production
+    ports:
+      - '4000:3000'
+    env_file: .env.prod
+
+  scrapper:
+    image: marcosfede/farmaciasdeturno-scrapper:prod
+    build:
+      context: './packages/scrapper'
+      target: production
+    depends_on:
+      - postgres
+    env_file: .env.prod
+
+volumes:
+  db_prod:

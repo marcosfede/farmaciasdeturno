@@ -11,12 +11,13 @@
     "lib"
   ],
   "scripts": {
-    "tsc": "tsc",
+    "build": "tsc",
     "schedule": "ts-node src/index.ts",
     "run-once": "ts-node src/run-once.ts",
     "start": "node lib/index.js"
   },
   "dependencies": {
+    "@types/node": "^13.13.4",
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
     "date-fns": "^1.30.1",

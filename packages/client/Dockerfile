@@ -10,14 +10,9 @@ RUN npm install --no-optional --no-audit && npm cache clean --force
 COPY --chown=node:node . /app
 CMD npm run dev
 
-FROM base as prod
+FROM base as production
 RUN npm install --no-optional --no-audit && npm cache clean --force
 COPY --chown=node:node . /app
 ENV NODE_ENV=production
-RUN npm run build
-CMD npm start
-
-# FROM nginx:stable-alpine as nginx
-# RUN apk --no-cache add curl
-# COPY --from=build /app/dist/bas-app/ /usr/share/nginx/html/
-# COPY --chown=nginx:nginx nginx.conf /etc/nginx/conf.d/default.conf
+# RUN npm run build
+CMD npm run build && npm start

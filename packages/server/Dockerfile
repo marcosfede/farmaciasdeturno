@@ -10,9 +10,9 @@ RUN npm install --no-optional --no-audit && npm cache clean --force
 COPY --chown=node:node . /app
 CMD npm run start:dev
 
-FROM base as prod
+FROM base as production
 RUN npm install --no-optional --no-audit && npm cache clean --force
 COPY --chown=node:node . /app
 ENV NODE_ENV=production
 RUN npm run build
-CMD npm start:prod
+CMD npm run start:prod
