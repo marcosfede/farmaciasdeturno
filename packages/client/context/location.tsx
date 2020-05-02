@@ -12,17 +12,7 @@ export const LocationContextProvider: React.FC = ({ children }) => {
   const [error, setError] = useState<PositionError | null>(null)
 
   useEffect(() => {
-    const watchId = geolocation.subscribe(
-      (pos) => {
-        console.log(pos)
-        setPosition(pos)
-      },
-      (err) => {
-        console.error(err)
-        setError(err)
-      },
-      { enableHighAccuracy: true },
-    )
+    const watchId = geolocation.subscribe(setPosition, setError, { enableHighAccuracy: true })
 
     return () => geolocation.unsubscribe(watchId)
   }, [])

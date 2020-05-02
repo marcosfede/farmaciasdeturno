@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.leaflet-container {
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+}
+
 .location-marker {
   background-color: white;
   height: 16px !important;
@@ -32,10 +38,4 @@
   to {
     transform: scale(0.8, 0.8);
   }
-}
-
-.location-marker-error {
-  background-color: rgb(51, 136, 255);
-  opacity: 0.3;
-  border-radius: 50%;
 }
