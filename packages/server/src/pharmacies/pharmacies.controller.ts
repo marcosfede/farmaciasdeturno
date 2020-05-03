@@ -1,6 +1,6 @@
-import { Get, Controller } from '@nestjs/common'
+import { Get, Controller, Res, HttpStatus } from '@nestjs/common'
 import { PharmaciesService, ShiftsService } from './pharmacies.service'
-import { Pharmacy, Shift } from './pharmacies.entity'
+import { Response } from 'express'
 
 @Controller('pharmacies')
 export class PharmaciesController {
@@ -17,7 +17,12 @@ export class ShiftsController {
   constructor(private readonly shiftsService: ShiftsService) {}
 
   @Get()
-  async shifts() {
-    return this.shiftsService.findOne()
+  async shifts(@Res() res: Response) {
+    const shift = await this.shiftsService.findOne()
+    if (!shift) {
+      res.status(HttpStatus.INTERNAL_SERVER_ERROR).send()
+    } else {
+      return shift
+    }
   }
 }
