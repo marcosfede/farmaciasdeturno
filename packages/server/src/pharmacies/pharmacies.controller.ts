@@ -17,12 +17,13 @@ export class ShiftsController {
   constructor(private readonly shiftsService: ShiftsService) {}
 
   @Get()
-  async shifts(@Res() res: Response) {
-    const shift = await this.shiftsService.findOne()
-    if (!shift) {
-      res.status(HttpStatus.INTERNAL_SERVER_ERROR).send()
-    } else {
-      return shift
-    }
+  async shifts() {
+    return await this.shiftsService.findOne()
+    // return shift
+    // if (!shift) {
+    //   return res.status(HttpStatus.INTERNAL_SERVER_ERROR).send()
+    // } else {
+    //   return shift
+    // }
   }
 }
